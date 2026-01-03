@@ -13,7 +13,7 @@ namespace _8_aspnetcore_configuration
             app.UseStaticFiles();
             app.UseRouting();
             app.UseEndpoints(endpoints => {
-                endpoints.Map("/", async context => {
+                endpoints.Map("/config", async context => {
                     await context.Response.WriteAsync(app.Configuration["mYkEY"] + "\n");
 
                     await context.Response.WriteAsync(app.Configuration.GetValue<string>("MyKey"));
