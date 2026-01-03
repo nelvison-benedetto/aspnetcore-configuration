@@ -37,6 +37,19 @@ namespace _8_aspnetcore_configuration
             app.MapControllers();
 
             app.Run();
+
+            /*
+             - terminal: 
+                dotnet user-secrets init
+                dotnet user-secrets set "myweatherapi:ClientID" "ClientiD from user secrets" 
+                dotnet user-secrets set "myweatherapi:ClientSecret" "ClientSecret from user secrets"
+                info: click dx su solution>manage user secrets
+                $Env: myweatherapi__ClientID "ClientID from environment vars"
+                $Env: myweatherapi__ClientSecret "ClientSecret from environment vars"
+                dotnet run --no-launch-profile
+                $Env: myweatherapi__ClientSecret "ClientSecret from environment vars UPDATED"
+                dotnet run --no-launch-profile
+             */
         }
     }
 }
