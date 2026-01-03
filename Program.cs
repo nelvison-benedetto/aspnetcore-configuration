@@ -7,6 +7,16 @@ namespace _8_aspnetcore_configuration
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
+            builder.Services.Configure<WeatherApiOptions>
+
+                //supply an obj of WeatherApiOptions (w 'weatherapi' section) as a service
+              (builder.Configuration.GetSection("myweatherapi")); //added for IOptions<WeatherApiOptions> injection
+
+            //load custom config file
+            builder.Host.ConfigureAppConfiguration((hostingContext, config) => {
+                config.AddJsonFile("CustomConfigFile.json", optional:true, reloadOnChange:true);
+            });
+
 
             var app = builder.Build();
 
